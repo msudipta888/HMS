@@ -86,6 +86,12 @@ The **Hospital Management System** is a full-stack web application designed to e
 1. **Clone Repository**
    ```bash
    git clone https://github.com/MKPTechnicals/Hospital-Management-System-MERN.git
+api routes:
+  /patient: Patient page
+  /doctor: Doctor staff page
+  /admin: Admin page
+  /financial: Finance page
+   
 cd frontend
 npm install
 cd backend
