@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Shield, User, Stethoscope, Eye, EyeOff } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({email,setEmail}) => {
   const navigate = useNavigate();
   const [selectedRole, setSelectedRole] = useState('patient');
-  const [email, setEmail] = useState('');
+  
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
@@ -116,7 +116,7 @@ const Login = () => {
               {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
             </div>
             <button
-              type="submit"
+              onClick={handleSubmit}
               className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition-colors"
             >
               Login as {roles.find((r) => r.id === selectedRole)?.label}

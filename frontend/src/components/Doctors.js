@@ -64,7 +64,7 @@ const Select = ({ children, ...props }) => (
   </select>
 );
 
-export default function DoctorDashboard() {
+export default function DoctorDashboard({email}) {
   const [showAppointments, setShowAppointments] = useState(false);
   const [showPatients, setShowPatients] = useState(false);
   const [activeTab, setActiveTab] = useState('Dashboard');
@@ -88,11 +88,7 @@ export default function DoctorDashboard() {
   const [appointments, setAppointments] = useState([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetchDoctorProfile();
-    fetchPatientsWithAppointments();
-    fetchAppointments();
-  }, []);
+  
 
   useEffect(() => {
     if (appointmentData.patientId) {
@@ -129,7 +125,7 @@ export default function DoctorDashboard() {
         navigate('/login');
         return;
       }
-      const response = await fetch('http://localhost:5000/api/doctor/profile', {
+      const response = await fetch(`http://localhost:5000/api/doctor/profile?email=${email}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -197,7 +193,11 @@ export default function DoctorDashboard() {
       console.error('Error fetching appointments:', error);
     }
   };
-
+  useEffect(() => {
+    fetchDoctorProfile();
+    fetchPatientsWithAppointments();
+    fetchAppointments();
+  }, []);
   const renderDashboard = () => (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -377,7 +377,7 @@ export default function DoctorDashboard() {
                 <Input
                   id="firstName"
                   name="firstName"
-                  value={isEditing ? editedInfo.firstName : doctorInfo?.firstName}
+                  value={doctorInfo?.firstName}
                   onChange={handleInputChange}
                   readOnly={!isEditing}
                 />

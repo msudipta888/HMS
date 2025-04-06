@@ -63,8 +63,9 @@ router.post('/add-admin', auth, async (req, res) => {
 });
 
 router.get('/profile', auth, async (req, res) => {
+  const {email} = req.query;
   try {
-    const admin = await Admin.findById(req.user.id).select('-password');
+    const admin = await Admin.findOne({email});
     if (!admin) {
       return res.status(404).send({ error: 'Admin not found' });
     }

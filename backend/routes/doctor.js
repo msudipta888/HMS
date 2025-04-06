@@ -25,7 +25,10 @@ const auth = (req, res, next) => {
 
 router.get('/profile', auth, async (req, res) => {
   try {
-    const doctor = await Doctor.findById(req.user.id).select('-password');
+    const {email}= req.query;
+   
+   
+    const doctor = await Doctor.findOne({email});
     if (!doctor) {
       return res.status(404).send({ error: 'Doctor not found' });
     }
@@ -35,6 +38,7 @@ router.get('/profile', auth, async (req, res) => {
     res.status(500).send({ error: 'Server error' });
   }
 });
+
 
 router.put('/profile', auth, async (req, res) => {
   try {
@@ -72,6 +76,10 @@ router.get('/all', async (req, res) => {
 router.get('/patients-with-appointments', auth, async (req, res) => {
   try {
     const doctorId = req.user.id;
+    console.log('Doctor ID:', doctorId); // Log the doctor ID for debugging
+    if(!doctorId) {
+      return res.status(400).send({ error: 'Doctor ID is required' });
+    }
     const appointments = await Appointment.find({ doctorId }).sort({ date: 1 });
     const patientIds = [...new Set(appointments.map(app => app.patientId.toString()))];
 

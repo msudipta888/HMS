@@ -64,7 +64,7 @@ const Select = ({ children, ...props }) => (
   </select>
 );
 
-export default function AdminDashboard() {
+export default function AdminDashboard({email}) {
   const [showDoctors, setShowDoctors] = useState(false);
   const [showPatients, setShowPatients] = useState(false);
   const [activeTab, setActiveTab] = useState('Dashboard');
@@ -111,7 +111,7 @@ export default function AdminDashboard() {
         // Handle not authenticated case
         return;
       }
-      const response = await fetch('http://localhost:5000/api/admin/profile', {
+      const response = await fetch(`http://localhost:5000/api/admin/profile?email=${email}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
