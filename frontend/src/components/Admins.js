@@ -111,7 +111,7 @@ export default function AdminDashboard({email}) {
         // Handle not authenticated case
         return;
       }
-      const response = await fetch(`http://localhost:5000/api/admin/profile?email=${email}`, {
+      const response = await fetch(`https://hms-1-1af5.onrender.com/api/admin/profile?email=${email}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -135,7 +135,7 @@ export default function AdminDashboard({email}) {
       if (!token) {
         return;
       }
-      const response = await fetch('http://localhost:5000/api/admin/total-doctors', {
+      const response = await fetch('https://hms-1-1af5.onrender.com/api/admin/total-doctors', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -157,7 +157,7 @@ export default function AdminDashboard({email}) {
       if (!token) {
         return;
       }
-      const response = await fetch('http://localhost:5000/api/admin/total-patients', {
+      const response = await fetch('https://hms-1-1af5.onrender.com/api/admin/total-patients', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -179,7 +179,7 @@ export default function AdminDashboard({email}) {
       if (!token) {
         return;
       }
-      const response = await fetch('http://localhost:5000/api/admin/doctor-overview', {
+      const response = await fetch('https://hms-1-1af5.onrender.com/api/admin/doctor-overview', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -201,7 +201,7 @@ export default function AdminDashboard({email}) {
       if (!token) {
         return;
       }
-      const response = await fetch('http://localhost:5000/api/admin/patient-overview', {
+      const response = await fetch('https://hms-1-1af5.onrender.com/api/admin/patient-overview', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -380,7 +380,7 @@ export default function AdminDashboard({email}) {
           navigate('/login');
           return;
         }
-        const response = await fetch('http://localhost:5000/api/admin/profile', {
+        const response = await fetch('https://hms-1-1af5.onrender.com/api/admin/profile', {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -475,7 +475,7 @@ export default function AdminDashboard({email}) {
           alert('You are not authenticated. Please log in.');
           return;
         }
-        const response = await fetch('http://localhost:5000/api/admin/add-doctor', {
+        const response = await fetch('https://hms-1-1af5.onrender.com/api/admin/add-doctor', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -599,7 +599,7 @@ export default function AdminDashboard({email}) {
           alert('You are not authenticated. Please log in.');
           return;
         }
-        const response = await fetch('http://localhost:5000/api/admin/add-admin', {
+        const response = await fetch('https://hms-1-1af5.onrender.com/api/admin/add-admin', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

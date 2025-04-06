@@ -127,7 +127,7 @@ export default function PatientDashboard() {
         navigate('/login');
         return;
       }
-      const response = await fetch('http://localhost:5000/api/patient/profile', {
+      const response = await fetch('https://hms-1-1af5.onrender.com/api/patient/profile', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -151,7 +151,7 @@ export default function PatientDashboard() {
         navigate('/login');
         return;
       }
-      const response = await fetch('http://localhost:5000/api/doctor/all', {
+      const response = await fetch('https://hms-1-1af5.onrender.com/api/doctor/all', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -171,7 +171,7 @@ export default function PatientDashboard() {
     if (!doctorId || !date) return;
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/patient/available-slots?doctorId=${doctorId}&date=${date}`, {
+      const response = await fetch(`https://hms-1-1af5.onrender.com/api/patient/available-slots?doctorId=${doctorId}&date=${date}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -194,7 +194,7 @@ export default function PatientDashboard() {
         navigate('/login');
         return;
       }
-      const response = await fetch('http://localhost:5000/api/patient/appointments', {
+      const response = await fetch('https://hms-1-1af5.onrender.com/api/patient/appointments', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -217,7 +217,7 @@ export default function PatientDashboard() {
         navigate('/login');
         return;
       }
-      const response = await fetch('http://localhost:5000/api/patient/care-team', {
+      const response = await fetch('https://hms-1-1af5.onrender.com/api/patient/care-team', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -240,7 +240,7 @@ export default function PatientDashboard() {
         navigate('/login');
         return;
       }
-      const response = await fetch('http://localhost:5000/api/patient/prescriptions', {
+      const response = await fetch('https://hms-1-1af5.onrender.com/patient/prescriptions', {
         headers: {
           'Authorization': `Bearer ${token}`
         }

@@ -21,7 +21,7 @@ const InsuranceSection = () => {
   const [editClaimId, setEditClaimId] = useState(null);
   const [error, setError] = useState("");
   const token = localStorage.getItem("token");
-  const apiUrl = "http://localhost:5000/api/insurance";
+  const apiUrl = "https://hms-1-1af5.onrender.com/api/insurance";
 
   // Fetch insurance claims from backend
   const fetchClaims = async () => {

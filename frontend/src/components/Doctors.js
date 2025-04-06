@@ -100,7 +100,7 @@ export default function DoctorDashboard({email}) {
     if (!patientId) return;
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/doctor/prescriptions/${patientId}`, {
+      const response = await fetch(`https://hms-1-1af5.onrender.com/api/doctor/prescriptions/${patientId}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -125,7 +125,7 @@ export default function DoctorDashboard({email}) {
         navigate('/login');
         return;
       }
-      const response = await fetch(`http://localhost:5000/api/doctor/profile?email=${email}`, {
+      const response = await fetch(`https://hms-1-1af5.onrender.com/doctor/profile?email=${email}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -149,7 +149,7 @@ export default function DoctorDashboard({email}) {
         navigate('/login');
         return;
       }
-      const response = await fetch('http://localhost:5000/api/doctor/patients-with-appointments', {
+      const response = await fetch('https://hms-1-1af5.onrender.com/api/doctor/patients-with-appointments', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -173,7 +173,7 @@ export default function DoctorDashboard({email}) {
         navigate('/login');
         return;
       }
-      const response = await fetch('http://localhost:5000/api/doctor/appointments', {
+      const response = await fetch('https://hms-1-1af5.onrender.com/api/doctor/appointments', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -343,7 +343,7 @@ export default function DoctorDashboard({email}) {
     const handleSave = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch('http://localhost:5000/api/doctor/profile', {
+        const response = await fetch('https://hms-1-1af5.onrender.com/api/doctor/profile', {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -472,7 +472,7 @@ export default function DoctorDashboard({email}) {
       if (!patientId || !date) return;
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch(`http://localhost:5000/api/doctor/available-slots?patientId=${patientId}&date=${date}`, {
+        const response = await fetch(`https://hms-1-1af5.onrender.com/api/doctor/available-slots?patientId=${patientId}&date=${date}`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -505,7 +505,7 @@ export default function DoctorDashboard({email}) {
       if (window.confirm('Are you sure you want to delete this prescription?')) {
         try {
           const token = localStorage.getItem('token');
-          const response = await fetch(`http://localhost:5000/api/doctor/prescriptions/${prescriptionId}`, {
+          const response = await fetch(`https://hms-1-1af5.onrender.com/api/doctor/prescriptions/${prescriptionId}`, {
             method: 'DELETE',
             headers: {
               'Authorization': `Bearer ${token}`
@@ -532,8 +532,8 @@ export default function DoctorDashboard({email}) {
         try {
           const token = localStorage.getItem('token');
           const url = appointmentData.prescriptionId
-            ? `http://localhost:5000/api/doctor/prescriptions/${appointmentData.prescriptionId}`
-            : 'http://localhost:5000/api/doctor/prescribe-medication';
+            ? `https://hms-1-1af5.onrender.com/api/doctor/prescriptions/${appointmentData.prescriptionId}`
+            : 'https://hms-1-1af5.onrender.com/api/doctor/prescribe-medication';
           const method = appointmentData.prescriptionId ? 'PUT' : 'POST';
           const response = await fetch(url, {
             method,
@@ -570,7 +570,7 @@ export default function DoctorDashboard({email}) {
       } else if (selectedAction === 'schedule-appointment') {
         try {
           const token = localStorage.getItem('token');
-          const response = await fetch('http://localhost:5000/api/doctor/schedule-appointment', {
+          const response = await fetch('https://hms-1-1af5.onrender.com/api/doctor/schedule-appointment', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

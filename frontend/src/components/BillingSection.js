@@ -23,7 +23,7 @@ const BillingSection = () => {
   const [editBillId, setEditBillId] = useState(null);
   const [error, setError] = useState("");
   const token = localStorage.getItem("token");
-  const apiUrl = "http://localhost:5000/api/billing";
+  const apiUrl = "https://hms-1-1af5.onrender.com/api/billing";
 
   // Fetch bills from backend
   const fetchBills = async () => {

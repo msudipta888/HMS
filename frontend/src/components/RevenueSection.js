@@ -19,7 +19,7 @@ const RevenueSection = () => {
     date: "",
   });
   const token = localStorage.getItem("token");
-  const apiUrl = "http://localhost:5000/api/revenue";
+  const apiUrl = "https://hms-1-1af5.onrender.com/api/revenue";
 
   // Fetch revenue data from the backend
   const fetchRevenues = async () => {
