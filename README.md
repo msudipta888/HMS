@@ -1,119 +1,135 @@
-# Hospital Management System
+# 🏥 Hospital Management System (MERN Stack)
 
-[![MongoDB](https://img.shields.io/badge/MongoDB-Database-green.svg)](https://www.mongodb.com/)
-[![Express](https://img.shields.io/badge/Express-Framework-blue.svg)](https://expressjs.com/)
-[![React](https://img.shields.io/badge/React-Library-61DAFB.svg)](https://reactjs.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-Environment-339933.svg)](https://nodejs.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Database-green.svg)](https://www.mongodb.com/)  
+[![Express](https://img.shields.io/badge/Express-Backend-blue.svg)](https://expressjs.com/)  
+[![React](https://img.shields.io/badge/React-Frontend-61DAFB.svg)](https://reactjs.org/)  
+[![Node.js](https://img.shields.io/badge/Node.js-Runtime-339933.svg)](https://nodejs.org/)
 
-## Overview
+---
 
-The Hospital Management System is a web application designed to streamline hospital operations, manage patient records, and enhance the overall efficiency of healthcare services. This application is built using React for the frontend and Node.js with Express for the backend, along with MongoDB for data storage.
+## 🔍 Overview
 
-## Features
+The **Hospital Management System** is a full-stack web application designed to enhance the efficiency of hospital workflows. It provides role-based dashboards for **patients**, **staff**, and **admin**, handling everything from appointment scheduling to financial reporting. Built using the **MERN stack**, the system follows best practices for responsive design, RESTful APIs, and clean architecture.
 
-- User authentication for patients, doctors, and admins
-- Patient management including records and appointments
-- Doctor management with profiles and schedules
-- Admin dashboard for overseeing hospital operations
-- Responsive design for mobile and desktop users
+---
 
-## Technologies Used
+## ✨ Features
 
-- **Frontend:**
-  - React
-  - React Router
-  - Tailwind CSS
-  - Lucide Icons
-  - Axios for API calls
+- 🧑‍⚕️ Role-Based Authentication (Patients, Doctors, Admin)
+- 📋 Patient Management (EHR, Appointments, Reminders)
+- 👨‍⚕️ Doctor Management (Schedules, Availability)
+- 🧑‍💼 Admin Dashboard (Department, Staff, Notifications)
+- 💳 Financial Dashboard (Revenue, Billing, Insurance)
+- 📊 Real-time Visualizations (using Recharts)
+- ⚙️ Error Handling, Secure Auth, and Role Access Control
+- 🎨 Responsive UI using Tailwind CSS
 
-- **Backend:**
-  - Node.js
-  - Express
-  - MongoDB
-  - Mongoose
-  - JWT for authentication
-  - dotenv for environment variable management
+---
 
-## Getting Started
+## 📊 Dashboard Modules
 
-### Prerequisites
+### 1. Patient Dashboard
+- **Focus:** All aspects of patient management  
+- **Features:**
+  - Electronic Health Records (EHR)
+  - Appointment tracking and reminders
+  - Admissions/discharges automation
+  - SMS/Email updates (e.g. test results)
 
-- Node.js (v14 or higher)
-- MongoDB (local or cloud instance)
+### 2. Staff Dashboard
+- **Focus:** Attendance, scheduling, and shift management  
+- **Features:**
+  - Roster with duty/schedule overview
+  - Clock-in/out tracking and leave logs
+  - Shift change notifications
+  - Staffing workload overview
 
-### Installation
+### 3. Financial Dashboard ✅ *(Newly Added)*
+- **Focus:** Billing, revenue, insurance, and overdue tracking  
+- **Features:**
+  - Daily/monthly bill tracking
+  - Insurance claims submission & approval
+  - Revenue trend charts (Recharts)
+  - Overdue payment alerts
 
-1. Clone the repository:
+---
 
+## 🛠 Tech Stack
+
+### 🔹 Frontend
+- React
+- React Router
+- Tailwind CSS
+- Lucide Icons
+- Axios
+- Recharts (for financial and patient dashboard charts)
+- Framer Motion (smooth transitions)
+
+### 🔸 Backend
+- Node.js
+- Express.js
+- MongoDB with Mongoose
+- JWT (authentication)
+- dotenv (env management)
+- Nodemon (dev server auto-restart)
+
+---
+
+## ⚙️ Getting Started
+
+### ✅ Prerequisites
+- Node.js (v14+)
+- MongoDB (local or Atlas)
+
+### 🚀 Setup Instructions
+
+1. **Clone Repository**
    ```bash
    git clone https://github.com/MKPTechnicals/Hospital-Management-System-MERN.git
-   ```
+cd frontend
+npm install
+cd backend
+npm install
+//mongodb
+mongoose.connect("<your_mongo_uri>")
+//CreateAdmin
+const admin = new Admin({
+  firstName: "John",
+  lastName: "Doe",
+  email: "admin@example.com",
+  password: "admin123",
+  role: "admin"
+});
+Run Server
+cd backend && nodemon server.js
+cd frontend && npm start
+🧪 Available Scripts
+In the frontend directory:
 
-2. Navigate to the frontend directory and install dependencies:
+npm start - Run dev server
 
-   ```bash
-   cd frontend
-   npm install
-   ```
+npm run build - Production build
 
-3. Navigate to the backend directory and install dependencies:
+npm test - Run test suite
 
-   ```bash
-   cd backend
-   npm install
-   ```
+npm run eject - Eject config
 
-4. Update a `/backend/server.js` & `/backend/createAdmin.js` file in the backend directory and add your MongoDB connection string:
+🧩 Challenges & Fixes
+🛠 Doctor DB Bug Fixed: Previously non-functional doctor records were debugged and resolved.
 
-   ```js
-   // MongoDB connection
-   mongoose.connect('<your_MongoDB_connection_string>', {
-   ```
-5. To create first admin, add your details to `/backend/createAdmin.js` file in backend directory:
+🎨 Patient Dashboard UI Revamped: Added line charts for appointment and admission trends.
 
-    ```js
-    const admin = new Admin({
-      firstName: "abc",
-      lastName: "xyz",
-      email: "abc@gmail.com",
-      password: "xyz123", 
-      role: "admin"
-    });
-    ```
+💵 Financial Dashboard Implemented: Complete billing & revenue tracking with dynamic charts.
 
-    Then, execute it once using:
-  
-    ```bash
-    node createAdmin.js
-    ```
+🔐 Auth Page Fixes: Role-based login bug was resolved and protected routes restructured.
 
-### Running the Application
+🧹 Error Handling Improved: All API endpoints now return proper error codes and messages.
 
-1. Start the backend server:
+🔄 Animations Added: Used Framer Motion to improve page transitions and dashboard feel.
 
-   ```bash
-   cd backend
-   node server.js
-   ```
+⏱ Development Time
+Task assigned via Loom
 
-2. Start the frontend application:
+Completed in ~10 hours
 
-   ```bash
-   cd frontend
-   npm start
-   ```
-
-3. Open your browser and navigate to `http://localhost:3000` to view the application.
-
-## Available Scripts
-
-In the frontend directory, you can run:
-
-- `npm start`: Runs the app in development mode.
-- `npm test`: Launches the test runner.
-- `npm run build`: Builds the app for production.
-- `npm run eject`: Ejects the configuration files.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a pull request or open an issue for any suggestions or improvements.
+Light help taken from ChatGPT for optimization & UI suggestions
